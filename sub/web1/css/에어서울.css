@@ -412,7 +412,7 @@ header nav > ul .depth01 .depth02 li:hover a {
     width: 120%;
     height: 700px;
     background: rgb(255, 255, 255);
-    background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0)50%, rgb(255, 255, 255) 100%);
+    background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0)30%, rgb(255, 255, 255) 100%);
     z-index: -1;
     position: absolute;
     top: 0;
@@ -458,7 +458,7 @@ span {
     left: 250px;
 }
 .cont02 .list div ul li {
-    width: 100px;
+    width: 110px;
 }
 .cont02 .list div ul li:nth-of-type(1) {}
 .cont02 .list div ul li:nth-of-type(1)::before {
