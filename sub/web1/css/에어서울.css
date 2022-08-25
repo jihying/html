@@ -36,6 +36,7 @@ header h1 a img{}
 header nav {
     height: 25%;
     margin-left: 20px;
+    display: flex;
 }
 header nav > ul {
     display: flex;
@@ -100,22 +101,30 @@ header nav > ul .depth01 .depth02 {
     font-size: 16px;
     font-weight: 400;
 }
-header nav .log {
-    justify-content: center;
-    margin-top: 35px;
+
+
+header .log {
+    justify-content: right;
+    margin-top: 43px;
     margin-left: 20px;
-} 
-header nav .log ul {
     display: flex;
+    align-items: center;
+    
 }
-header nav .log ul li {
-    font-size: 14px;
+header .log ul li {
+    margin-right: 20px;
+}
+header .log select {
+    font-size: 15px;
     font-weight: 400;
-    margin: 0 30px;
+    width: 70px;
+    height: 30px;
+    border: 1px;
 }
-header nav .log ul li img {
-    margin-bottom: 2px;
+header .log select {
+    margin-left: 5px;
 }
+header nav > ul .depth01 {}
 header nav > ul .depth01:hover > a {
     color: #0ab394;
 }
@@ -279,9 +288,7 @@ header nav > ul .depth01 .depth02 li:hover a {
     margin-left: 80px;
     font-weight: 800;
 }
-.cont01 > div h3 img {
-    margin-bottom: 3px;
-}
+
 .cont01 > div {
     margin-bottom: 20px;
 }
@@ -314,7 +321,7 @@ header nav > ul .depth01 .depth02 li:hover a {
 }
 .cont01 .list .time div ul {}
 .cont01 .list .time div ul li {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 .cont01 .list .time div ul li:nth-of-type(1) {
     font-size: 22px;
@@ -331,8 +338,8 @@ header nav > ul .depth01 .depth02 li:hover a {
 }
 .cont01 .list .time div p {
     font-size: 14px;
-    line-height: 1.2;
-    margin-top: 5px;
+    line-height: 1.5;
+    
     font-weight: 400;
     color: #777;
 }
@@ -352,7 +359,7 @@ header nav > ul .depth01 .depth02 li:hover a {
     height: 40px;
     padding: 11px 20px;
     color: #0ab394;
-    margin-top: 4px;
+    margin-top: 2px;
     font-size: 16px;
 }
 .cont01 .list .time div strong:hover {
@@ -373,9 +380,7 @@ header nav > ul .depth01 .depth02 li:hover a {
     font-size: 32px;
     font-weight: 800;
 }
-.cont02 h3 img {
-    margin-bottom: 3px;
-}
+
 .cont02 h1 {
     font-size: 142px;
     color: #0ab394;
@@ -460,18 +465,23 @@ span {
 .cont02 .list div ul li {
     width: 110px;
 }
-.cont02 .list div ul li:nth-of-type(1) {}
+.cont02 .list div ul li:nth-of-type(1) {
+    font-weight: 700;
+    font-size: 24px;
+}
 .cont02 .list div ul li:nth-of-type(1)::before {
     content: '';
     width: 135px;
     height: 1px;
     background-color: #0ab394;
     position: absolute;
-    top: 22px;
+    top: 30px;
     left: 0;
 }
 .cont02 .list div ul li:nth-of-type(2) {
     margin-top: 15px;
+    font-weight: 700;
+    font-size: 18px;
 }
 
 /* footer */
@@ -484,6 +494,7 @@ footer {
 footer .left {
     width: 100%;
     padding: 50px 310px;
+    
 }
 footer .left p {
     display: inline-block;
@@ -500,8 +511,8 @@ footer .left p:last-of-type::after{
 footer .left h6 {font-family: 'Noto Sans KR';
     font-size: 14px;
     font-weight: 300;
-    line-height: 1.2;
-    margin-top: 20px;
+    line-height: 1.5;
+    margin-top: 30px;
 }
 
 footer .right {

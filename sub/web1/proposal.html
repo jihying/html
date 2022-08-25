@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>proposal</title>
+    <!-- aos css -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="css/이미지확대+스크롤효과.css" rel="stylesheet">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- aos js -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+
+    
+
+    <style>
+  
+
+
+
+@font-face {
+    font-family: 'Paybooc';
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/bccard/PayboocMedium.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/bccard/PayboocMedium.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/bccard/PayboocMedium.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/bccard/PayboocMedium.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/bccard/PayboocMedium.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Paybooc';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/bccard/PayboocBold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/bccard/PayboocBold.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/bccard/PayboocBold.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/bccard/PayboocBold.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/bccard/PayboocBold.ttf') format("truetype");
+    font-display: swap;
+}
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+        body {
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            font-family: 'Paybooc';
+            
+        }
+
+        .top {
+            /* background-color: #0ab394; */
+            width: 100%;
+            height: 1000px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .top div {
+            width: 1280px;
+            margin: 0 auto;
+        }
+        .top div h1 {
+            padding-top: 50px;
+            color: #0ab394;
+            font-weight: 700;
+            
+        }
+        .top div img {
+            width: 570px;
+            height: 80px;
+            object-fit: cover;
+            position: absolute;
+            bottom: 180px;
+        }
+        p {
+            position: absolute;
+            bottom: 110px;
+            line-height: 1.5;
+            font-size: 18px;
+            font-weight: 500;
+            color: #0ab394;
+        }
+
+
+        .top .air img {
+            width: 1570px;
+            height: 300px;
+            object-fit: cover;
+            z-index: 9;
+            display: block;
+            position: absolute;
+            top: 100px;
+            left: 500px;
+            animation-name: box-ani;
+            animation: box-ani 13s infinite;
+        }
+        @keyframes box-ani {
+            0% {
+                transform: translateX(1100px);
+                opacity:1;
+            }
+            100% {
+                transform: translateX(-2700px);
+                opacity: 1;
+            }
+            
+        }
+
+        
+        .pro {
+            width: 1280px;
+            margin: 0 auto;
+
+        }
+        .pro img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .bottom {
+            background-color: #0ab394;
+            width: 100%;
+            height: 100px;
+            position: relative;
+        }
+        .bottom img {
+            width: 175px;
+            height: 25px;
+            object-fit: cover;
+            position: absolute;
+            bottom: 37%;
+            left: 50%;
+            transform: translate(-50%);
+        }
+    </style>
+    <script>
+        $(function(){
+            var swiper = new Swiper(".top img", {
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: {
+               delay: 2500, //1초=1000 2.5초
+                //     disableOnInteraction: false, //마우스 올렸을때 화면 멈출건지
+                },
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <div class="top">
+        <div>
+        <h1>Web Site Design Renewal</h1>
+        <img src="img/logo.png" alt="로고이미지" />
+        <p>에어서울은 금호아시아나 계열사의 저가항공사로, 현재 국내선과 국제선을 운행합니다.<br>
+            저가항공 중 가장 신식 비행기와 가장 넓은 좌석을 갖추어 더욱 쾌적한 항공기 환경을 제공합니다.</p>
+        </div>
+        <div class="air" data-aos="fade-left"
+        data-aos-offset="-1000"
+        data-aos-easing="ease-in-sine">
+            <img src="img/proair.png" alt="비행기" />
+        </div>
+    </div>
+
+    
+    
+    <div class="pro"><img src="img/airseoulpropasal.jpg" alt="상세페이지" /></div>
+    
+    <div class="bottom">
+        <img src="img/logo.png" alt="로고이미지" />
+    </div>
+    <script>
+    AOS.init();
+    </script>
+</body>
+</html>
