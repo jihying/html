@@ -1,0 +1,553 @@
+@charset "utf-8";
+
+  @font-face {   font-family: 'Roboto';   font-style: normal;   font-weight: 500;
+     src: url(../font/Roboto-Medium.woff2) format('woff2'),
+          url(../font/Roboto-Medium.woff) format('woff'),
+          url(../font/Roboto-Medium.otf) format('opentype'); }
+  @font-face {   font-family: 'Roboto';   font-style: normal;   font-weight: 700;
+   src: url(../font/Roboto-Bold.woff2) format('woff2'),
+        url(../font/Roboto-Bold.woff) format('woff'),
+        url(../font/Roboto-Bold.otf) format('opentype'); }
+
+
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&family=Noto+Sans:wght@100;300;400;500;700&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+body {
+    color: #333;
+    line-height: 1;
+    overflow-x: hidden;
+    
+}
+span {
+    position: absolute;
+    left: -9999999px;
+}
+/* header */
+header {
+    width: 1920px;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color:white;
+    border-bottom: 1px solid #333;
+    z-index: 99;
+}
+
+header div {
+    width: 1440px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header div h1 {
+    padding: 20px;
+}
+header div nav {
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    font-family: 'Noto Sans';
+    font-size: 18px;
+    font-weight: 400;
+}
+header div nav ul {
+    width: 1196px;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+}
+header div nav .depth01 {
+    
+}
+header div nav .depth01 .depth02 {
+    display: none;
+}
+header i {
+    font-size: 20px;
+    margin: 0 auto;
+}
+/* .main_visual */
+/* textani */
+.main {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+.main .scroll {
+  position: absolute;
+  left: 0; top: 0;
+  display: flex;
+  transform: rotate(0deg);/* degree:각도 */
+  
+}
+.main .scroll div {
+  font-size: 130px;
+    font-family: 'Roboto';
+    font-weight: 500;
+  white-space: nowrap;/* 화면 크기조절해도 글자가 떨어지지 않도록 */
+  animation: animate1 80s linear infinite;
+}
+.main .scroll div:nth-child(2) {
+  animation: animate2 80s linear infinite;
+  animation-delay: -40s;
+}
+
+@keyframes animate1 {
+  0% {transform: translateX(100%);}
+  100%{transform: translateX(-100%);}
+}
+@keyframes animate2 {
+  0% {transform: translateX(0%);}
+  100%{transform: translateX(-200%);}
+}
+
+
+.main:nth-of-type(2) {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+.main:nth-of-type(2) .scroll {
+  position: absolute;
+  left: 0; 
+  top: 674px;
+  display: flex;
+  transform: rotate(0deg);/* degree:각도 */
+  
+}
+.main:nth-of-type(2) .scroll div {
+  font-size: 130px;
+    font-family: 'Roboto';
+    font-weight: 500;
+  white-space: nowrap;/* 화면 크기조절해도 글자가 떨어지지 않도록 */
+  animation: animate1 80s linear infinite;
+  animation-direction: alternate;
+}
+.main:nth-of-type(2) .scroll div:nth-child(2) {
+  animation: animate2 80s linear infinite;
+  animation-delay: -40s;
+  animation-direction: alternate;
+}
+
+@keyframes animate1 {
+  0% {transform: translateX(100%);}
+  100%{transform: translateX(-100%);}
+}
+@keyframes animate2 {
+  0% {transform: translateX(0%);}
+  100%{transform: translateX(-200%);}
+}
+/* textani end */
+
+.main_visual {
+    width: 100%;
+    height: 900px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #333;
+    background-color: #ededed;
+    z-index: -1;
+}
+.main_visual > div {
+    margin: 0 auto;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    
+}
+.main_visual h2 {
+    
+}
+
+#PopLayer1 {
+    position: absolute;
+    top: 150px;
+    left: 150px;
+    z-index: 99;
+    transition: 1s;
+  }
+#PopLayer2 {
+    position: absolute;
+    top: 280px;
+    left: 800px;
+    z-index: 99;
+    transition: 3s;
+  }
+#PopLayer3 {
+    position: absolute;
+    top: 180px;
+    left: 1300px;
+    z-index: 99;
+    transition: 5s;
+  }
+#PopLayer4 {
+    position: absolute;
+    top: 500px;
+    left: 1000px;
+    z-index: 99;
+    transition: 7s;
+  }
+
+
+
+.main_visual img {
+    
+  }
+
+/* cont01 */
+.cont01 {
+    margin-top: 150PX;
+    margin-bottom: 50px;
+    
+  }
+.cont01 .category {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+  }
+.cont01 .category ul {
+    text-align: center;
+}
+.cont01 .category ul li {
+    margin: 10px 10px;
+    font-family: 'Noto Sans';
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.cont01 .category ul li .on {
+    width: 98px;
+    height: 98px;
+    border: 1px solid #333;
+    border-radius: 80%;
+    
+}
+
+
+
+/* item */
+.cont01 .box {
+    width: 1440px;
+
+    height: 1320px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 250px;
+    
+}
+.cont01 .box .item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cont01 h4 {
+    width: 1440px;
+    height: 30px;
+    text-align: left;
+    font-family: 'Noto Sans';
+    font-weight: 500;
+    font-size: 32px;
+    margin: 30px auto;
+}
+.cont01 .item  .list p {
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.cont01 .item  .list h6 {
+    font-size: 18px;
+    margin-bottom: 80px;
+}
+.cont01 .item .list {}
+.cont01 .item .list img {
+    border: 1px solid #333;
+}
+.cont01 .item .btn {
+    width: 100px;
+    height: 50px;
+    border: 1px solid #333;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 48px;
+    margin: 0 auto;
+}
+.cont01 .item .btn:hover {
+    background-color: #333;
+    color: white;
+}
+.cont01 .box {
+    display: none;
+}
+.cont01 .box.on {
+    display: flex;
+}
+
+
+
+/* .slide .swiper-slide:last-of-type {
+    border: none;
+} */
+.slide .swiper-slide p {
+    font-family: 'Noto Sans';
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.slide .swiper-slide h6 {
+    font-family: 'Noto Sans';
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 50px;
+}
+.slide .swiper-slide strong {
+    font-family: 'Noto Sans';
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+/* swiper 초기값 */
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+    color: #333;
+}
+.swiper-button-next, .swiper-rtl .swiper-button-prev {
+    color: #333;
+}
+.swiper {
+    width: 120%;
+    height: 100%;
+  }
+  .swiper-wrapper {
+    position: absolute;
+    left: -643px;
+  }
+  .swiper-slide {
+    text-align: left;
+    font-size: 18px;
+    background: #fff;
+    height: 250px;
+    
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    border: 1px solid #333;
+    width: 463px;
+  }
+  .swiper-slide img {
+    display: block;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin: auto 10px;
+  }
+  .slide {
+    width: 1440px;
+    height: 250px;
+    position: relative;
+    margin: 150px auto;
+  }
+  .slide h4 {
+    width: 1440px;
+    height: 30px;
+    text-align: left;
+    font-size: 32px;
+    margin: 30px auto;
+  }
+  .slide .best {
+    line-height: 1.5;
+    width: 463px;
+  }
+  
+
+
+  /* .cont02 */
+  .cont02 {
+    background-color: #ededed;
+    width: 100%;
+    height: 1900px;
+    position: relative;
+    
+  }
+  .cont02 .nike {
+    width: 1440px;
+    height: 1730px;
+    padding-top: 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  .cont02 .nike .left {
+    width: 830px;
+
+  }
+  .cont02 .nike .left h2 {
+    font-family: 'Roboto';
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 45px;
+  }
+
+  .cont02 .nike .right  {
+    width: 586px;
+    
+  }
+  .cont02 .nike .right .text {
+    position: absolute;
+    bottom: 100px;
+    line-height: 1.2;
+  }
+  .cont02 .nike .right .text p {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  .cont02 .nike .right .text img {
+    margin-top: 200px;
+  }
+  .cont02 .nike .right .text strong {
+    font-size: 44px;
+  }
+  
+  .cont02 .nike .right .s3 img:nth-of-type(1) {
+    position: absolute;
+    top: 600px;
+    right: 500px;
+    transition: 2s;
+    z-index: 60;
+  }
+  .cont02 .nike .right .s3 img:nth-of-type(2) {
+    position: absolute;
+    top: 500px;
+    right: 230px;
+    transition: 2s;
+    z-index: 59;
+  }
+  .cont02 .nike .right .s3 img:nth-of-type(3) {
+    position: absolute;
+    top: 200px;
+    right: 400px;
+    transition: 2s;
+    z-index: 58;
+  }
+  .cont02 .nike .right .s3 img:nth-of-type(1):hover {
+    top: 150px;
+    animation: ani1 5s linear infinite;
+  }
+  @keyframes ani1 {
+    0% {transform: translateY(100%);
+    transform: rotate(360deg);}
+    100%{transform: translateY(-100%);
+        transform: rotate(-360deg)}
+  }
+  
+  .cont02 .nike .right .s3 img:nth-of-type(2):hover {
+    top: 200px;
+    animation: ani2 5s linear infinite;
+  }
+  @keyframes ani2 {
+    0% {transform: translateY(100%);
+    transform: rotate(720deg);}
+    100%{transform: translateY(-100%);
+        transform: rotate(-720deg)}
+  }
+
+  .cont02 .nike .right .s3 img:nth-of-type(3):hover {
+    top: 800px;
+    animation: ani3 5s linear infinite;
+  }
+  @keyframes ani3 {
+    0% {transform: translateY(100%);
+    transform: rotate(520deg);}
+    100%{transform: translateY(-100%);
+        transform: rotate(-520deg)}
+  }
+  .cont02 .nike .right .d p {
+    margin-top: 30px;
+  }
+  .cont02 .nike .right .d {
+    
+  }
+  .cont03 div video {
+    display: block;
+    width: 100vw;
+    height: 760px;
+    object-fit: cover;
+  }
+  /* STÜSSY Worldwide since 1980 */
+  .cont03 .main {
+    background-color: #ededed;
+    height: 150px;
+    width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+    font-size: 120px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    }
+    .cont03 .main .scroll {
+        position: absolute;
+        left: 0; top: 20px;
+        display: flex;
+        transform: rotate(0deg);/* degree:각도 */
+        
+    }
+    .cont03 .main .scroll div {
+        white-space: nowrap;/* 화면 크기조절해도 글자가 떨어지지 않도록 */
+        animation: animate1 80s linear infinite;
+    }
+    .cont03 .main .scroll div:nth-child(2) {
+        animation: animate2 80s linear infinite;
+        animation-delay: -39.99s;
+    }
+    
+    @keyframes animate1 {
+        0% {transform: translateX(100%);}
+        100%{transform: translateX(-100%);}
+    }
+    @keyframes animate2 {
+        0% {transform: translateX(0%);}
+        100%{transform: translateX(-200%);}
+    }
+
+
+    footer {
+        width: 100%;
+        margin: 25px auto;
+    }
+    footer p {
+        font-family: 'Noto Sans KR';
+        font-weight: 100;
+        font-size: .75rem;
+        text-align: center;
+    }
