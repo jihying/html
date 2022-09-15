@@ -7,6 +7,31 @@
     <title>에어서울 리뉴얼</title>
     <link href="font/폰트.css" rel="stylesheet" />
     <link href="css/에어서울.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+
+    <style>
+        
+        .on {
+          color: #0ab394;
+        }
+      </style>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+    <script>
+        $( document ).ready( function() {
+        $( '.ss .top li' ).click( function() {
+        $('.ss .top li').removeClass('on');
+        $( this ).addClass('on');
+        } );
+    })
+    </script>
+      
+      
+
+    
 </head>
 <body>
     <header>
@@ -127,38 +152,46 @@
         <div class="s">
             <h2>어디로 떠나세요?</h2>
             <div class="ss">
-                <ul>
-                    <li><a href="#"> 편도 </a></li>
+                <ul class="top">
+                    <li class="on"><a href="#"> 편도 </a></li>
                     <li><a href="#"> 왕복 </a></li>
                 </ul>
-            <div>
-                <ul>
-                    <li><img src="img/비행기아이콘.png" alt="
-                        비행기아이콘" /></li>
-                    <li>출발지</li>
-                </ul>
-                <img src="img/화살표아이콘.png" alt="화살표아이콘" />
-                <ul>
-                    <li><img src="img/비행기아이콘.png" alt="
-                        비행기아이콘" /></li>
-                    <li>도착지</li>
-                </ul>
-                <ul>
-                    <li><img src="img/달력아이콘.png" alt="
-                        달력아이콘" /> </li>
+                <div>
+                    <ul>
+                        <li><img src="img/비행기아이콘.png" alt="
+                            비행기아이콘" /></li>
+                        <li><input type="text" placeholder="출발지" onfocus="this.placeholder=''"
+                            onblur="this.placeholder='출발지'"/></li>
+                    </ul>
+                    <ul>
+                        <li><img src="img/화살표아이콘.png" alt="화살표아이콘" /></li>
+                    </ul>
+                    <ul>
+                        <li><img src="img/비행기아이콘.png" alt="
+                            비행기아이콘" /></li>
+                        <li><input type="text" placeholder="도착지" onfocus="this.placeholder=''"
+                            onblur="this.placeholder='도착지'"/></li>
+                    </ul>
+                    <ul>
+                        <li><img src="img/달력아이콘.png" alt="
+                            달력아이콘" /> </li>
                         <li>일정</li>
-                </ul>
-                <ul>
-                    <li><img src="img/인원아이콘.png" alt="
-                        인원아이콘" /> </li>
+                        
+                    </ul>
+                    <div class="c">
+                        
+                    </div>
+                    <ul>
+                        <li><img src="img/인원아이콘.png" alt="
+                            인원아이콘" /> </li>
                         <li>인원</li>
-                </ul>
-                <ul>
-                    <li>
-                    <img src="img/검색아이콘.png" alt="검색아이콘" />
-                    </li>
-                </ul>
-            </div>
+                    </ul>
+                    <ul>
+                        <li>
+                        <img src="img/검색아이콘.png" alt="검색아이콘" />
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div><!-- .s end -->
     </section><!-- .main end -->
@@ -263,32 +296,36 @@
     </section><!-- .cont02 end -->
 
     <footer>
-        <div class="left">
-        <p>회사소개 </p>
-        <p>여객운송약관</p>
-        <p>홈페이지 이용약관</p>
-        <p>개인정보처리방침</p>
-        <p>이메일무단수집거부</p>
-        <p>항공교통이용자 서비스 계획</p>
-        <p>피해구제계획</p>
-        <p>소비자 안전 관련 정보 공개</p>
-        <p>운임 안내</p>
-        <p>기타 고지사항</p>
-        <h6>에어서울 주식회사 대표이사 조진만 <br>
-            본사 소재지 : (우)07505 서울특별시 강서구 하늘길 176 <br>
-            사업장 소재지 : (우)22382 인천광역시 중구 공항로 272 운서동 <br>
-            국내선, 국제선 예약문의 1800-8100 (09:00~18:00)사업자 등록 번호 : 825-81-00091 사업자정보확인통신판매업 신고번호 제 2016-인천중구-0199 <br>
-            호스팅 서버 위치 : 아시아나IDT(주) 전산센터(서울 강서구 오쇠동)개인정보보호책임자 대표이사 조진만</h6>
-        </div>
-
-        <div class="right">
-            <div class="icon">
-                <img src="img/페이스북.png" alt="페북" />
-                <img src="img/유튜브.png" alt="유튭" />
-                <img src="img/인스타그램.png" alt="인스" />
+        <div>
+            <div class="left">
+            <p>회사소개 </p>
+            <p>여객운송약관</p>
+            <p>홈페이지 이용약관</p>
+            <p>개인정보처리방침</p>
+            <p>이메일무단수집거부</p>
+            <p>항공교통이용자 서비스 계획</p>
+            <p>피해구제계획</p>
+            <p>소비자 안전 관련 정보 공개</p>
+            <p>운임 안내</p>
+            <p>기타 고지사항</p>
+            <h6>에어서울 주식회사 대표이사 조진만 <br>
+                본사 소재지 : (우)07505 서울특별시 강서구 하늘길 176 <br>
+                사업장 소재지 : (우)22382 인천광역시 중구 공항로 272 운서동 <br>
+                국내선, 국제선 예약문의 1800-8100 (09:00~18:00)사업자 등록 번호 : 825-81-00091 사업자정보확인통신판매업 신고번호 제 2016-인천중구-0199 <br>
+                호스팅 서버 위치 : 아시아나IDT(주) 전산센터(서울 강서구 오쇠동)개인정보보호책임자 대표이사 조진만</h6>
             </div>
-            <img src="img/에어서울회색로고.png" alt="에어" />
+
+            <div class="right">
+                <div class="icon">
+                    <img src="img/페이스북.png" alt="페북" />
+                    <img src="img/유튜브.png" alt="유튭" />
+                    <img src="img/인스타그램.png" alt="인스" />
+                </div>
+                <img src="img/에어서울회색로고.png" alt="에어" />
+            </div>
         </div>
     </footer>
+    
+    
 </body>
 </html>
