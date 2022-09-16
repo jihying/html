@@ -59,17 +59,19 @@ header .inner nav ul li a {
     height: calc(100vh - 100px);
     position: relative;/* 이미지위에 글이 올라가기 위해서 반드시 이방법 써야함 */
 }
-.main_visual img {
+.main_visual video {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     object-fit: cover;
+
 }
 
 .main_visual .inner {
     position: absolute;
-    top: 50%;
+    top: 95%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: #fff;
 }
 .main_visual .inner h2 {
     font-size: 70px;
