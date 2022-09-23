@@ -12,8 +12,8 @@
     />
     
     <!-- 팬시박스 css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
+
     <link href="css/font.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
 
@@ -22,7 +22,7 @@
     <!-- swiper js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <!-- 팬시박스 js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     <!-- 4.jquery ui lib -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    
@@ -33,15 +33,19 @@
       $(function(){
         //영상편집 슬라이드
         var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
         pagination: {
           el: ".swiper-pagination",
-          type: "fraction",
+          clickable: true,
         },
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
       });
+        
 
       //영상편집 탭메뉴
       $('.motion_menu ul li').click(function(){
@@ -65,9 +69,42 @@
                 }, 1000, 'easeInOutQuart');
             });
         
+            /* 메뉴아이콘 클릭 */
+            $('.menu_open').click(function(){
+                $('.gnb_all').slideDown(1000, 'easeInOutQuart');/* 이징공작소 검색해서 복사해오기 */
+            });
 
+            /* 닫기아이콘 클릭 */
+            $('.menu_close').click(function(){
+                $('.gnb_all').slideUp(1000, 'easeInOutQuart');
+            });
+
+        
           
+        Fancybox.bind('[data-fancybox="gallery"]', {
+        Toolbar: false,
+        animated: false,
+        dragToClose: false,
 
+        showClass: false,
+        hideClass: false,
+
+        closeButton: "top",
+
+        Image: {
+            click: "close",
+            wheel: "slide",
+            zoom: false,
+            fit: "cover",
+        },
+
+        Thumbs: {
+            minScreenHeight: 0,
+        },
+        }); 
+
+
+        
       });//jquery end
     </script>
 </head>
@@ -77,12 +114,74 @@
             <h1>
                 <a href="#">jihyeon</a>
             </h1>
-            <nav>
+            <nav class="gnb">
                 <ul>
                     <li class="click"><a href="#c1">영상디자인</a></li>
                     <li class="click"><a href="#c2">웹디자인</a></li>
                     <li class="click"><a href="#c3">시각디자인</a></li>
-                    <li class="click"><a href="#c4">소개</a></li>
+                    <li class="click menu_open "><a href="#c4">프로필</a></li>
+                </ul>
+            </nav>
+            <nav class="gnb_all">
+                <i class="menu_close xi-close-thin">
+                    <span>메뉴닫기</span>
+                </i>
+                <!-- 자기소개 변경 --><ul>
+                    <div class="title">
+                        <!-- <h3>나의 소개</h3>
+                        <p>나의 경력, 이력, 스킬을 공유합니다.</p> -->
+                    </div><!-- .title end -->
+                    <div class="info">
+                        <div class="info_img">
+                            <img src="img/mango.jpg" alt="" />
+                        </div><!-- .info_img end -->
+    
+                        <div class="text">
+                            <ul>
+                                <li><strong>이름</strong></li>
+                                <li>정지현</li>
+                            </ul>
+                            <ul>
+                                <li><strong>연락처</strong></li>
+                                <li>010-4033-5003</li>
+                            </ul>
+                            <ul>
+                                <li><strong>생년월일</strong></li>
+                                <li>1997.12.23</li>
+                            </ul>
+                            <ul>
+                                <li><strong>이메일</strong></li>
+                                <li>wjdwlgus1223@naver.com</li>
+                            </ul>
+                            <ul>
+                                <li><strong>경력 및 수상이력</strong></li>
+                                <li>어디에서 무엇을 ?<br />어디에서 무엇을 ?</li>
+                            </ul>
+                            <ul>
+                                <li><strong>교육</strong></li>
+                                <li>[멀티미디어콘텐츠제작]스마트-영상편집&웹<br />프리미어 프로, 에프터이펙트 시네마4D</li>
+                            </ul>
+                            <ul>
+                                <li><strong>최종학력</strong></li>
+                                <li>부경대학교 시각디자인학과 졸업</li>
+                            </ul>
+                            <ul class="list">
+                                <li class="v">#영상편집</li>
+                                <li class="v">#프리미어프로</li>
+                                <li class="v">#에프터이펙트</li>
+                                <li class="v">#시네마4D</li>
+                                <li class="v">#옥테인렌더</li>
+                                <li>#일러스트레이터</li>
+                                <li>#포토샵</li>
+                                <li>#인디자인</li>
+                                <li>#라이노</li>
+                                <li>#키샷</li>
+                                <li class="w">#웹제작</li>
+                                <li class="w">#html</li>
+                                <li class="w">#css</li>
+                                <li class="w">#jquery</li>
+                            </ul><!-- .list end -->
+                        </div><!-- .text end -->
                 </ul>
             </nav>
         </div><!-- .inner end -->
@@ -109,220 +208,75 @@
         <div class="inner">
             <div class="title">
                 <h3>영상디자인</h3>
-                <p>프리미어 프로, 에프터이펙트를 사용하여 모션그래픽을 제작하였습니다.</p>
+                <!-- <p>프리미어 프로, 에프터이펙트를 사용하여 모션그래픽을 제작하였습니다.</p> -->
             </div><!-- .title end -->
-            <div class="motion_menu">
-                <ul>
-                    <li class="on">3D 모션그래픽</li>
-                    <li>2D 모션그래픽</li>
-                    <li>편집</li>
-                    <li>브이로그</li>
-                    <li>뮤비티저</li>
-                </ul>
-            </div><!-- .motion_menu end -->
-
-            <!-- swiper slide -->
-            <!-- motion_menu 1 게임 -->
-            <div class="swiper mySwiper on">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="item">
-                        <!-- 유튜브 -->
-                        <div class="pc_youtube">
-                            <img src="img/pc_img.png" alt="모니터" />
-                            <div class="youtube">
-                                <div>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/_DVtQ8FbDNU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            </div><!-- .pc_youtube end -->
-
-                            <div class="info">
-                                <strong>촬영, 출연, 편집, 디자인, 특수효과</strong>
-                                <h4>영상제목 작성하는 곳</h4>
-                                <p>하나에 못 멀리 아침이 이 있습니다. 별 어머니, 하나에 계십니다. 다하지 풀이 새겨지는 쉬이 계십니다. 계절이 말 동경과 까닭입니다. 쉬이 했던 잔디가 가을 속의 이런 지나고 봅니다. 가슴속에 노루, 같이 있습니다. 지나고 이름과, 둘 있습니다.
-                                </p>
-                                <ul class="text">
-                                    <li><strong>프로그램</strong> : 프리미어 프로, 에프터이펙트, 마야, 포토샵, 일러스트레이터</li>
-                                    <li><strong>제작일자</strong> : 2022.09</li>
-                                </ul><!-- .text end -->
-                                <ul class="btn">
-                                    <li><a href="#">영상 원본 보기</a></li>
-                                    <li><a href="#">기획서 보기</a></li>
-                                </ul><!-- .btn end -->
-                            </div>
-                        
-                    </div><!-- .item end -->
-                  </div><!-- 1 -->
-                  <div class="swiper-slide">
-                    <div class="item">
-                        <!-- 유튜브 -->
-                        <div class="pc_youtube">
-                            <img src="img/pc_img.png" alt="모니터" />
-                            <div class="youtube">
-                                <div>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/_DVtQ8FbDNU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            </div><!-- .pc_youtube end -->
-
-                            <div class="info">
-                                <strong>촬영, 출연, 편집, 디자인, 특수효과</strong>
-                                <h4>영상제목 작성하는 곳</h4>
-                                <p>하나에 못 멀리 아침이 이 있습니다. 별 어머니, 하나에 계십니다. 다하지 풀이 새겨지는 쉬이 계십니다. 계절이 말 동경과 까닭입니다. 쉬이 했던 잔디가 가을 속의 이런 지나고 봅니다. 가슴속에 노루, 같이 있습니다. 지나고 이름과, 둘 있습니다.
-                                </p>
-                                <ul class="text">
-                                    <li><strong>프로그램</strong> : 프리미어 프로, 에프터이펙트, 마야, 포토샵, 일러스트레이터</li>
-                                    <li><strong>제작일자</strong> : 2022.09</li>
-                                </ul><!-- .text end -->
-                                <ul class="btn">
-                                    <li><a href="#">영상 원본 보기</a></li>
-                                    <li><a href="#">기획서 보기</a></li>
-                                </ul><!-- .btn end -->
-                            </div>
-                      
-                    </div><!-- .item end -->
-                  </div><!-- 2 -->
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-              </div><!-- .swiper end 1 -->
-
-            <!-- motion_menu 2 홍보영상 -->
+            
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
-                    <div class="item">
-                        <!-- 유튜브 -->
-                        <div class="pc_youtube">
-                            <img src="img/pc_img.png" alt="모니터" />
-                            <div class="youtube">
-                                <div>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/_DVtQ8FbDNU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            </div><!-- .pc_youtube end -->
-
-                            <div class="info">
-                                <strong>촬영, 출연, 편집, 디자인, 특수효과</strong>
-                                <h4>영상제목 작성하는 곳 2</h4>
-                                <p>하나에 못 멀리 아침이 이 있습니다. 별 어머니, 하나에 계십니다. 다하지 풀이 새겨지는 쉬이 계십니다. 계절이 말 동경과 까닭입니다. 쉬이 했던 잔디가 가을 속의 이런 지나고 봅니다. 가슴속에 노루, 같이 있습니다. 지나고 이름과, 둘 있습니다.
-                                </p>
-                                <ul class="text">
-                                    <li><strong>프로그램</strong> : 프리미어 프로, 에프터이펙트, 마야, 포토샵, 일러스트레이터</li>
-                                    <li><strong>제작일자</strong> : 2022.09</li>
-                                </ul><!-- .text end -->
-                                <ul class="btn">
-                                    <li><a href="#">영상 원본 보기</a></li>
-                                    <li><a href="#">기획서 보기</a></li>
-                                </ul><!-- .btn end -->
-                            </div>
-                        
-                    </div><!-- .item end -->
-                  </div><!-- 1 -->
+                    <div class="aroww01"></div>
+                    <i class="arrow01 arrow01--left"></i>
+                    <div class="text">
+                        <h3>영상제목</h3>
+                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, exercitationem harum ipsam error eveniet accusamus eligendi quam dolore impedit.</h5>
+                        <h6>프로그램</h6>
+                    </div>
+                    <div class="vid">
+                        <video loop muted autoplay>
+                            <source src="img/motion.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    
+                    <div class="aroww02"></div>
+                    <i class="arrow02 arrow02--right"></i>
+                    
+                  </div>
                   <div class="swiper-slide">
-                    <div class="item">
-                        <!-- 유튜브 -->
-                        <div class="pc_youtube">
-                            <img src="img/pc_img.png" alt="모니터" />
-                            <div class="youtube">
-                                <div>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/_DVtQ8FbDNU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            </div><!-- .pc_youtube end -->
+                    <div class="aroww01"></div>
+                    <i class="arrow01 arrow01--left"></i>
+                    <div class="text">
+                        <h3>영상제목</h3>
+                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, exercitationem harum ipsam error eveniet accusamus eligendi quam dolore impedit.</h5>
+                        <h6>프로그램</h6>
+                    </div>
+                    <div class="vid">
+                        <video loop muted autoplay>
+                            <source src="img/motion.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <div class="aroww02"></div>
+                    <i class="arrow02 arrow02--right"></i>
+                    
 
-                            <div class="info">
-                                <strong>촬영, 출연, 편집, 디자인, 특수효과</strong>
-                                <h4>영상제목 작성하는 곳</h4>
-                                <p>하나에 못 멀리 아침이 이 있습니다. 별 어머니, 하나에 계십니다. 다하지 풀이 새겨지는 쉬이 계십니다. 계절이 말 동경과 까닭입니다. 쉬이 했던 잔디가 가을 속의 이런 지나고 봅니다. 가슴속에 노루, 같이 있습니다. 지나고 이름과, 둘 있습니다.
-                                </p>
-                                <ul class="text">
-                                    <li><strong>프로그램</strong> : 프리미어 프로, 에프터이펙트, 마야, 포토샵, 일러스트레이터</li>
-                                    <li><strong>제작일자</strong> : 2022.09</li>
-                                </ul><!-- .text end -->
-                                <ul class="btn">
-                                    <li><a href="#">영상 원본 보기</a></li>
-                                    <li><a href="#">기획서 보기</a></li>
-                                </ul><!-- .btn end -->
-                            </div>
-                      
-                    </div><!-- .item end -->
-                  </div><!-- 2 -->
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="aroww01"></div>
+                    <i class="arrow01 arrow01--left"></i>
+                    <div class="text">
+                        <h3>영상제목</h3>
+                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, exercitationem harum ipsam error eveniet accusamus eligendi quam dolore impedit.</h5>
+                        <h6>프로그램</h6>
+                    </div>
+                    <div class="vid">
+                        <video loop muted autoplay>
+                            <source src="img/motion.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <div class="aroww02"></div>
+                    <i class="arrow02 arrow02--right"></i>
+                    
+                  </div>
+                  <div class="swiper-slide">Slide 4</div>
+                  <div class="swiper-slide">Slide 5</div>
+                  <div class="swiper-slide">Slide 6</div>
+                  <div class="swiper-slide">Slide 7</div>
+                  <div class="swiper-slide">Slide 8</div>
+                  <div class="swiper-slide">Slide 9</div>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-              </div><!-- .swiper end 2 -->
-
-            <!-- motion_menu 3 인포그래픽 -->
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="item">
-                        <!-- 유튜브 -->
-                        <div class="pc_youtube">
-                            <img src="img/pc_img.png" alt="모니터" />
-                            <div class="youtube">
-                                <div>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/_DVtQ8FbDNU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            </div><!-- .pc_youtube end -->
-
-                            <div class="info">
-                                <strong>촬영, 출연, 편집, 디자인, 특수효과</strong>
-                                <h4>영상제목 작성하는 곳3</h4>
-                                <p>하나에 못 멀리 아침이 이 있습니다. 별 어머니, 하나에 계십니다. 다하지 풀이 새겨지는 쉬이 계십니다. 계절이 말 동경과 까닭입니다. 쉬이 했던 잔디가 가을 속의 이런 지나고 봅니다. 가슴속에 노루, 같이 있습니다. 지나고 이름과, 둘 있습니다.
-                                </p>
-                                <ul class="text">
-                                    <li><strong>프로그램</strong> : 프리미어 프로, 에프터이펙트, 마야, 포토샵, 일러스트레이터</li>
-                                    <li><strong>제작일자</strong> : 2022.09</li>
-                                </ul><!-- .text end -->
-                                <ul class="btn">
-                                    <li><a href="#">영상 원본 보기</a></li>
-                                    <li><a href="#">기획서 보기</a></li>
-                                </ul><!-- .btn end -->
-                            </div>
-                        
-                    </div><!-- .item end -->
-                  </div><!-- 1 -->
-                  <div class="swiper-slide">
-                    <div class="item">
-                        <!-- 유튜브 -->
-                        <div class="pc_youtube">
-                            <img src="img/pc_img.png" alt="모니터" />
-                            <div class="youtube">
-                                <div>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/_DVtQ8FbDNU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            </div><!-- .pc_youtube end -->
-
-                            <div class="info">
-                                <strong>촬영, 출연, 편집, 디자인, 특수효과</strong>
-                                <h4>영상제목 작성하는 곳</h4>
-                                <p>하나에 못 멀리 아침이 이 있습니다. 별 어머니, 하나에 계십니다. 다하지 풀이 새겨지는 쉬이 계십니다. 계절이 말 동경과 까닭입니다. 쉬이 했던 잔디가 가을 속의 이런 지나고 봅니다. 가슴속에 노루, 같이 있습니다. 지나고 이름과, 둘 있습니다.
-                                </p>
-                                <ul class="text">
-                                    <li><strong>프로그램</strong> : 프리미어 프로, 에프터이펙트, 마야, 포토샵, 일러스트레이터</li>
-                                    <li><strong>제작일자</strong> : 2022.09</li>
-                                </ul><!-- .text end -->
-                                <ul class="btn">
-                                    <li><a href="#">영상 원본 보기</a></li>
-                                    <li><a href="#">기획서 보기</a></li>
-                                </ul><!-- .btn end -->
-                            </div>
-                      
-                    </div><!-- .item end -->
-                  </div><!-- 2 -->
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-              </div><!-- .swiper end 3 -->
-
+                <!-- <div class="swiper-pagination"></div> -->
+              </div>
 
 
         </div><!-- .inner end -->
@@ -385,19 +339,41 @@
                 <h3>시각디자인</h3>
                 <!-- <p>2D, 3D그래픽을 포토샵, 일러스트레이터를 이용하여 디자인을 제작하였습니다.</p>
              --></div><!-- .title end -->
-            <div class="tool">
-                <div class="t">
-                    <h4>PHOTOSHOP</h4>
+             
+            <!--o https://fancyapps.com/playground/vi --> <!--x https://codepen.io/fancyapps/pen/wEVbdY?editors=1010 -->
+            
+            <div class="tool" data-aos="fade-up" data-aos-duration="1500">
+                <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
+                    <div class="t" data-fancybox="gallery" href="img/DUNKIN web 1920.gif">
+                        <a data-fancybox="gallery" href="img/sky.jpg">
+                            <img class="rounded" src="img/sky.jpg" />
+                          </a>
+                          <a data-fancybox="gallery" href="img/motion.mp4">
+                            <img class="rounded" src="img/Moment.jpg" />
+                          </a>
+                    <h4 data-aos="fade-up" data-aos-duration="1500">PHOTOSHOP</h4>
                     <div class="aroww"></div>
                     <i class="arrow arrow--right"></i>
-                    <img src="img/mango.jpg" alt="" />
+                    <img src="img/DUNKIN.jpg" alt="" />
+                    
+                    </div>
                 </div>
-                <div class="t">
-                    <h4>ILLUSTRATOR</h4>
-                    <div class="aroww"></div>
-                    <i class="arrow arrow--right"></i>
-                    <img src="img/mango.jpg" alt="" />
+
+                <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
+                    <div class="t" data-fancybox="gallery2" href="img/sky.jpg">
+                        <a data-fancybox="gallery2" href="img/motion.mp4">
+                            <img class="rounded" src="img/Moment.jpg" />
+                          </a><a data-fancybox="gallery2" href="img/DUNKIN.jpg">
+                            <img class="rounded" src="img/DUNKIN.jpg" />
+                          </a>
+                        <h4 data-aos="fade-up" data-aos-duration="1500">ILLUSTRATOR</h4>
+                        <div class="aroww"></div>
+                        <i class="arrow arrow--right"></i>
+                        <img src="img/sky.jpg" alt="" />
+                        
+                    </div>
                 </div>
+
             </div>
         </div><!-- .inner end -->
     </section><!-- .cont04 end -->
@@ -465,6 +441,10 @@
             </div>
         </div><!-- .inner end -->
     </section><!-- .cont05 end -->
+
+
+<!-- 무한이미지스크롤  https://wsss.tistory.com/1979 -->
+
 
     <footer>
         <ul>
