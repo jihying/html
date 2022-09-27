@@ -47,15 +47,7 @@
       });
         
 
-      //영상편집 탭메뉴
-      $('.motion_menu ul li').click(function(){
-        $('.motion_menu ul li').removeClass('on');
-        $(this).addClass('on');
-
-        $('.mySwiper').removeClass('on');
-        $('.mySwiper').eq($(this).index()).addClass('on');
-
-      });
+      
 
       $('.click a').click(function(e){
                 e.preventDefault();//a링크 방지
@@ -69,17 +61,27 @@
                 }, 1000, 'easeInOutQuart');
             });
         
-            /* 메뉴아이콘 클릭 */
-            $('.menu_open').click(function(){
-                $('.gnb_all').slideDown(1000, 'easeInOutQuart');/* 이징공작소 검색해서 복사해오기 */
-            });
-
-            /* 닫기아이콘 클릭 */
-            $('.menu_close').click(function(){
-                $('.gnb_all').slideUp(1000, 'easeInOutQuart');
-            });
+            
 
         
+            var header = document.querySelector('header');
+            var headerMoving = function(direction){
+            if (direction === "up"){
+                header.className = '';
+            } else if (direction === "down"){
+                header.className = 'scrollDown';
+            }
+            };
+            var prevScrollTop = 0;
+            document.addEventListener("scroll", function(){
+            var nextScrollTop = window.pageYOffset || 0; // pageYOffset -> IE 8 이하 빼고 다 됨.
+            if (nextScrollTop > prevScrollTop){
+                headerMoving("down");
+            } else if (nextScrollTop < prevScrollTop){
+                headerMoving("up");
+            }
+            prevScrollTop = nextScrollTop;
+            });
           
         Fancybox.bind('[data-fancybox="gallery"]', {
         Toolbar: false,
@@ -103,7 +105,10 @@
         },
         }); 
 
-
+        window.navigator.clipboard.writeText("wjdwlgus1223@naver.com").then(() => {
+        // 복사가 완료되면 이 부분 호출
+        alert("이메일이 복사되었습니다.");
+        });
         
       });//jquery end
     </script>
@@ -114,76 +119,15 @@
             <h1>
                 <a href="#">jihyeon</a>
             </h1>
-            <nav class="gnb">
+            <nav>
                 <ul>
                     <li class="click"><a href="#c1">영상디자인</a></li>
-                    <li class="click"><a href="#c2">웹디자인</a></li>
-                    <li class="click"><a href="#c3">시각디자인</a></li>
-                    <li class="click menu_open "><a href="#c4">프로필</a></li>
+                    <li class="click"><a href="#c2">시각디자인</a></li>
+                    <li class="click"><a href="#c3">웹디자인</a></li>
+                    <li class="click"><a href="#c4">프로필</a></li>
                 </ul>
             </nav>
-            <nav class="gnb_all">
-                <i class="menu_close xi-close-thin">
-                    <span>메뉴닫기</span>
-                </i>
-                <!-- 자기소개 변경 --><ul>
-                    <div class="title">
-                        <!-- <h3>나의 소개</h3>
-                        <p>나의 경력, 이력, 스킬을 공유합니다.</p> -->
-                    </div><!-- .title end -->
-                    <div class="info">
-                        <div class="info_img">
-                            <img src="img/mango.jpg" alt="" />
-                        </div><!-- .info_img end -->
-    
-                        <div class="text">
-                            <ul>
-                                <li><strong>이름</strong></li>
-                                <li>정지현</li>
-                            </ul>
-                            <ul>
-                                <li><strong>연락처</strong></li>
-                                <li>010-4033-5003</li>
-                            </ul>
-                            <ul>
-                                <li><strong>생년월일</strong></li>
-                                <li>1997.12.23</li>
-                            </ul>
-                            <ul>
-                                <li><strong>이메일</strong></li>
-                                <li>wjdwlgus1223@naver.com</li>
-                            </ul>
-                            <ul>
-                                <li><strong>경력 및 수상이력</strong></li>
-                                <li>어디에서 무엇을 ?<br />어디에서 무엇을 ?</li>
-                            </ul>
-                            <ul>
-                                <li><strong>교육</strong></li>
-                                <li>[멀티미디어콘텐츠제작]스마트-영상편집&웹<br />프리미어 프로, 에프터이펙트 시네마4D</li>
-                            </ul>
-                            <ul>
-                                <li><strong>최종학력</strong></li>
-                                <li>부경대학교 시각디자인학과 졸업</li>
-                            </ul>
-                            <ul class="list">
-                                <li class="v">#영상편집</li>
-                                <li class="v">#프리미어프로</li>
-                                <li class="v">#에프터이펙트</li>
-                                <li class="v">#시네마4D</li>
-                                <li class="v">#옥테인렌더</li>
-                                <li>#일러스트레이터</li>
-                                <li>#포토샵</li>
-                                <li>#인디자인</li>
-                                <li>#라이노</li>
-                                <li>#키샷</li>
-                                <li class="w">#웹제작</li>
-                                <li class="w">#html</li>
-                                <li class="w">#css</li>
-                                <li class="w">#jquery</li>
-                            </ul><!-- .list end -->
-                        </div><!-- .text end -->
-                </ul>
-            </nav>
+            
         </div><!-- .inner end -->
     </header>
     <div class="main_visual">
@@ -206,10 +150,9 @@
 
     <section class="cont01" id="c1">
         <div class="inner">
-            <div class="title">
+            <div class="title" data-aos="fade-up"data-aos-duration="1500">
                 <h3>영상디자인</h3>
-                <!-- <p>프리미어 프로, 에프터이펙트를 사용하여 모션그래픽을 제작하였습니다.</p> -->
-            </div><!-- .title end -->
+                
             
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
@@ -240,9 +183,8 @@
                         <h6>프로그램</h6>
                     </div>
                     <div class="vid">
-                        <video loop muted autoplay>
-                            <source src="img/motion.mp4" type="video/mp4" />
-                        </video>
+                        <img src="img/sky.jpg" alt="" />
+                        
                     </div>
                     <div class="aroww02"></div>
                     <i class="arrow02 arrow02--right"></i>
@@ -278,17 +220,234 @@
                 <!-- <div class="swiper-pagination"></div> -->
               </div>
 
-
+            </div><!-- .title end -->
         </div><!-- .inner end -->
     </section><!-- .cont01 end -->
 
+
+    <section class="cont04" id="c3">
+        <div class="inner">
+            <div class="title" data-aos="fade-up"data-aos-duration="1500">
+                <h3>시각디자인</h3>
+                <!-- <p>2D, 3D그래픽을 포토샵, 일러스트레이터를 이용하여 디자인을 제작하였습니다.</p>
+             --></div><!-- .title end -->
+             
+            <!--o https://fancyapps.com/playground/vi --> <!--x https://codepen.io/fancyapps/pen/wEVbdY?editors=1010 -->
+            
+            <div class="tool" data-aos="fade-up" data-aos-duration="1000">
+                <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
+                    <div class="t" data-fancybox="gallery" href="img/DUNKIN web 1920.gif">
+                        <img class="rounded" src="img/DUNKIN.jpg" />
+                        <a data-fancybox="gallery" href="img/sky.jpg">
+                            <img class="rounded" src="img/sky.jpg" />
+                        </a>
+                        <a data-fancybox="gallery" href="img/motion.mp4">
+                            <img class="rounded" src="img/Moment.jpg" />
+                        </a>
+                    <h4 data-aos="fade-up" data-aos-duration="1500">PACKAGE DESIGN</h4>
+                    <div class="aroww"></div>
+                    <i class="arrow arrow--right"></i>
+                    <img src="img/DUNKIN.jpg" alt="" />
+                    
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
+                    <div class="t" data-fancybox="gallery2" href="img/sky.jpg">
+                        <img class="rounded" src="img/sky.jpg" />
+                        <a data-fancybox="gallery2" href="img/motion.mp4">
+                            <img class="rounded" src="img/Moment.jpg" />
+                          </a>
+                        <a data-fancybox="gallery2" href="img/DUNKIN web 1920.gif">
+                            <img class="rounded" src="img/DUNKIN.jpg" />
+                        </a>
+                        <h4 data-aos="fade-up" data-aos-duration="1500">CHARACTER DESIGN</h4>
+                        <div class="aroww"></div>
+                        <i class="arrow arrow--right"></i>
+                        <img src="img/sky.jpg" alt="" />
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool" data-aos="fade-up" data-aos-duration="1000">
+                <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
+                    <div class="t" data-fancybox="gallery3" href="img/DUNKIN web 1920.gif">
+                        <img class="rounded" src="img/DUNKIN.jpg" />
+                        <a data-fancybox="gallery3" href="img/sky.jpg">
+                            <img class="rounded" src="img/sky.jpg" />
+                        </a>
+                        <a data-fancybox="gallery3" href="img/motion.mp4">
+                            <img class="rounded" src="img/Moment.jpg" />
+                        </a>
+                    <h4 data-aos="fade-up" data-aos-duration="1500">ILLUST DESIGN</h4>
+                    <div class="aroww"></div>
+                    <i class="arrow arrow--right"></i>
+                    <img src="img/DUNKIN.jpg" alt="" />
+                    
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
+                    <div class="t" data-fancybox="gallery4" href="img/sky.jpg">
+                        <img class="rounded" src="img/sky.jpg" />
+                        <a data-fancybox="gallery4" href="img/motion.mp4">
+                            <img class="rounded" src="img/Moment.jpg" />
+                          </a>
+                        <a data-fancybox="gallery4" href="img/DUNKIN web 1920.gif">
+                            <img class="rounded" src="img/DUNKIN.jpg" />
+                        </a>
+                        <h4 data-aos="fade-up" data-aos-duration="1500">LOGO DESIGN</h4>
+                        <div class="aroww"></div>
+                        <i class="arrow arrow--right"></i>
+                        <img src="img/sky.jpg" alt="" />
+                        
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="tool" data-aos="fade-up" data-aos-duration="1000">
+                <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
+                    <div class="t" data-fancybox="gallery5" href="img/DUNKIN web 1920.gif">
+                        <img class="rounded" src="img/DUNKIN.jpg" />
+                        <a data-fancybox="gallery5" href="img/sky.jpg">
+                            <img class="rounded" src="img/sky.jpg" />
+                        </a>
+                        <a data-fancybox="gallery5" href="img/motion.mp4">
+                            <img class="rounded" src="img/Moment.jpg" />
+                        </a>
+                    <h4 data-aos="fade-up" data-aos-duration="1500">EDITORIAL DESIGN</h4>
+                    <div class="aroww"></div>
+                    <i class="arrow arrow--right"></i>
+                    <img src="img/DUNKIN.jpg" alt="" />
+                    
+                    </div>
+                </div>
+
+                <!-- <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
+                    <div class="t" data-fancybox="gallery6" href="img/sky.jpg">
+                        <img class="rounded" src="img/sky.jpg" />
+                        <a data-fancybox="gallery6" href="img/motion.mp4">
+                            <img class="rounded" src="img/Moment.jpg" />
+                          </a>
+                        <a data-fancybox="gallery6" href="img/DUNKIN web 1920.gif">
+                            <img class="rounded" src="img/DUNKIN.jpg" />
+                        </a>
+                        <h4 data-aos="fade-up" data-aos-duration="1500">LOGO DESIGN</h4>
+                        <div class="aroww"></div>
+                        <i class="arrow arrow--right"></i>
+                        <img src="img/sky.jpg" alt="" />
+                        
+                    </div>
+                </div> -->
+
+            </div>
+            <div class="header">
+                <!--  <h1>Spinny Flipz</h1> -->
+              </div>
+              <div class="slider-section">
+                <div class="wheel">
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-1.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-2.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-3.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-4.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-5.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-6.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-7.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-1.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-2.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-3.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-4.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-5.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-6.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-7.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-1.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-2.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-3.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-4.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-5.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-6.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-7.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-1.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-2.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-3.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-4.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-5.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-6.jpg" />
+                  </div>
+                  <div class="wheel__card">
+                    <img src="https://assets.codepen.io/756881/amys-7.jpg" />
+                  </div>
+                </div>
+            </div>
+        </div><!-- .inner end -->
+        
+    </section><!-- .cont04 end -->
+
     <section class="cont03" id="c2">
-        <div class="title inner">
+        <div data-aos="fade-up"data-aos-duration="1500">
+        <div class="title inner" >
             <h3>웹디자인</h3>
-            <p>접근성과 호환성을 고려한 웹사이트 리뉴얼</p>
         </div><!-- .title end -->
         <div class="list inner">
             <div class="item"><!-- 1 -->
+                <div class="mot2">
+                    <img src="img/motion2.png" alt="구름" />
+                </div>
                 <div class="mot">
                     <img src="img/motion.png" alt="비행기" />
                 </div>
@@ -331,113 +490,78 @@
             </div><!-- .item end 2 -->
 
         </div><!-- .list end -->
+        </div>
     </section><!-- .cont03 end -->
-
-    <section class="cont04" id="c3">
-        <div class="inner">
-            <div class="title">
-                <h3>시각디자인</h3>
-                <!-- <p>2D, 3D그래픽을 포토샵, 일러스트레이터를 이용하여 디자인을 제작하였습니다.</p>
-             --></div><!-- .title end -->
-             
-            <!--o https://fancyapps.com/playground/vi --> <!--x https://codepen.io/fancyapps/pen/wEVbdY?editors=1010 -->
-            
-            <div class="tool" data-aos="fade-up" data-aos-duration="1500">
-                <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
-                    <div class="t" data-fancybox="gallery" href="img/DUNKIN web 1920.gif">
-                        <a data-fancybox="gallery" href="img/sky.jpg">
-                            <img class="rounded" src="img/sky.jpg" />
-                          </a>
-                          <a data-fancybox="gallery" href="img/motion.mp4">
-                            <img class="rounded" src="img/Moment.jpg" />
-                          </a>
-                    <h4 data-aos="fade-up" data-aos-duration="1500">PHOTOSHOP</h4>
-                    <div class="aroww"></div>
-                    <i class="arrow arrow--right"></i>
-                    <img src="img/DUNKIN.jpg" alt="" />
-                    
-                    </div>
-                </div>
-
-                <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
-                    <div class="t" data-fancybox="gallery2" href="img/sky.jpg">
-                        <a data-fancybox="gallery2" href="img/motion.mp4">
-                            <img class="rounded" src="img/Moment.jpg" />
-                          </a><a data-fancybox="gallery2" href="img/DUNKIN.jpg">
-                            <img class="rounded" src="img/DUNKIN.jpg" />
-                          </a>
-                        <h4 data-aos="fade-up" data-aos-duration="1500">ILLUSTRATOR</h4>
-                        <div class="aroww"></div>
-                        <i class="arrow arrow--right"></i>
-                        <img src="img/sky.jpg" alt="" />
-                        
-                    </div>
-                </div>
-
-            </div>
-        </div><!-- .inner end -->
-    </section><!-- .cont04 end -->
 
     <section class="cont05" id="c4">
         <div class="inner">
             <div class="box" data-aos="fade-up"
             data-aos-duration="1500">
                 <div class="title">
-                    <!-- <h3>나의 소개</h3>
-                    <p>나의 경력, 이력, 스킬을 공유합니다.</p> -->
+                   <h3>프로필</h3>
                 </div><!-- .title end -->
                 <div class="info">
                     <div class="info_img">
-                        <img src="img/mango.jpg" alt="" />
+                        <img src="img/cont03_1.jpg" alt="" /><!-- 사진 컬러, 흑백 넣고 opacity 줄 것 -->
+                        <div class="me">
+                            <h2><strong>정지현</strong> 1997/12/23</h2>
+                            <h3>010.4033.5003</h3>    
+                            <h4><a href="#" onClick="toclip('textclip'); return false;">wjdwlgus1223@naver.com</a></h4>
+                        </div>
                     </div><!-- .info_img end -->
-
+                    
+              
                     <div class="text">
                         <ul>
-                            <li><strong>이름</strong></li>
-                            <li>정지현</li>
-                        </ul>
-                        <ul>
-                            <li><strong>연락처</strong></li>
-                            <li>010-4033-5003</li>
-                        </ul>
-                        <ul>
-                            <li><strong>생년월일</strong></li>
-                            <li>1997.12.23</li>
-                        </ul>
-                        <ul>
-                            <li><strong>이메일</strong></li>
-                            <li>wjdwlgus1223@naver.com</li>
-                        </ul>
-                        <ul>
-                            <li><strong>경력 및 수상이력</strong></li>
+                            <li><strong>경력 및 수상</strong></li>
                             <li>어디에서 무엇을 ?<br />어디에서 무엇을 ?</li>
                         </ul>
                         <ul>
+                            <li><strong>자격증</strong></li>
+                            <li>2018.03.16. 국가공인 GTQ그래픽기술자격 일러스트
+                            <br>2017.09.15. 국가공인GTQ그래픽기술자격 포토샵
+                            <br>2017.01.10. 자동자운전면허 2종보통
+                            </li>
+                            
+                
+                        </ul>
+                        <ul>
                             <li><strong>교육</strong></li>
-                            <li>[멀티미디어콘텐츠제작]스마트-영상편집&웹<br />프리미어 프로, 에프터이펙트 시네마4D</li>
+                            <li>[멀티미디어콘텐츠제작]스마트-영상편집&웹 프리미어 프로, 에프터이펙트 시네마4D</li>
                         </ul>
                         <ul>
                             <li><strong>최종학력</strong></li>
-                            <li>부경대학교 시각디자인학과 졸업</li>
+                            <li>2019.02 부경대학교 시각디자인학과 졸업
+                                <br>2016.02 부산남산고등학교 졸업
+                            </li>
                         </ul>
-                        <ul class="list">
-                            <li class="v">#영상편집</li>
-                            <li class="v">#프리미어프로</li>
-                            <li class="v">#에프터이펙트</li>
-                            <li class="v">#시네마4D</li>
-                            <li class="v">#옥테인렌더</li>
-                            <li>#일러스트레이터</li>
-                            <li>#포토샵</li>
-                            <li>#인디자인</li>
-                            <li>#라이노</li>
-                            <li>#키샷</li>
-                            <li class="w">#웹제작</li>
-                            <li class="w">#html</li>
-                            <li class="w">#css</li>
-                            <li class="w">#jquery</li>
-                        </ul><!-- .list end -->
+                        <ul>
+                            <li><strong>툴</strong></li>
+                            <li >프리미어프로 에프터이펙트 시네마4D 옥테인렌더<br />
+                            일러스트레이터 포토샵 인디자인<br />
+                            VSCODE HTML CSS JS</li>
+                        </ul>
+                        <ul></ul>
+                        
+                        
                     </div><!-- .text end -->
                 </div><!-- .info end -->
+                <!-- <ul class="list">
+                    <li class="v">#영상편집</li>
+                    <li class="v">#프리미어프로</li>
+                    <li class="v">#에프터이펙트</li>
+                    <li class="v">#시네마4D</li>
+                    <li class="v">#옥테인렌더</li>
+                    <li>#일러스트레이터</li>
+                    <li>#포토샵</li>
+                    <li>#인디자인</li>
+                    <li>#라이노</li>
+                    <li>#키샷</li>
+                    <li class="w">#웹제작</li>
+                    <li class="w">#html</li>
+                    <li class="w">#css</li>
+                    <li class="w">#jquery</li>
+                </ul> --><!-- .list end -->
             </div>
         </div><!-- .inner end -->
     </section><!-- .cont05 end -->
