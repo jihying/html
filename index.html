@@ -105,10 +105,19 @@
         },
         }); 
 
-        window.navigator.clipboard.writeText("wjdwlgus1223@naver.com").then(() => {
-        // 복사가 완료되면 이 부분 호출
-        alert("이메일이 복사되었습니다.");
-        });
+
+        let clip = document.getElementById('clip');
+        clip.onclick = function(){
+          window.navigator.clipboard.writeText("wjdwlgus1223@naver.com").then(() => {
+            // 복사가 완료되면 이 부분 호출
+            alert("이메일이 복사되었습니다.");
+          });
+        }
+        $('#clip').click(function(e){
+                e.preventDefault();//a링크 방지
+            });
+
+        
         
       });//jquery end
     </script>
@@ -268,7 +277,7 @@
                         
                     </div>
                 </div>
-            </div>
+            </div><!-- 작품, 작품 설명 ppt 가로 길게 제작해서 업로드 -->
 
             <div class="tool" data-aos="fade-up" data-aos-duration="1000">
                 <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
@@ -305,12 +314,12 @@
                     </div>
                 </div>
 
-            </div>
+            </div><!-- 작품, 작품 설명 ppt 가로 길게 제작해서 업로드 -->
             
             <div class="tool" data-aos="fade-up" data-aos-duration="1000">
                 <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
-                    <div class="t" data-fancybox="gallery5" href="img/DUNKIN web 1920.gif">
-                        <img class="rounded" src="img/DUNKIN.jpg" />
+                    <div class="t" data-fancybox="gallery5" href="img/edit.jpg">
+                        <img class="rounded" src="img/edit.jpg" />
                         <a data-fancybox="gallery5" href="img/sky.jpg">
                             <img class="rounded" src="img/sky.jpg" />
                         </a>
@@ -320,29 +329,14 @@
                     <h4 data-aos="fade-up" data-aos-duration="1500">EDITORIAL DESIGN</h4>
                     <div class="aroww"></div>
                     <i class="arrow arrow--right"></i>
-                    <img src="img/DUNKIN.jpg" alt="" />
+                    <img src="img/edit.jpg" alt="" />
                     
                     </div>
                 </div>
 
-                <!-- <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
-                    <div class="t" data-fancybox="gallery6" href="img/sky.jpg">
-                        <img class="rounded" src="img/sky.jpg" />
-                        <a data-fancybox="gallery6" href="img/motion.mp4">
-                            <img class="rounded" src="img/Moment.jpg" />
-                          </a>
-                        <a data-fancybox="gallery6" href="img/DUNKIN web 1920.gif">
-                            <img class="rounded" src="img/DUNKIN.jpg" />
-                        </a>
-                        <h4 data-aos="fade-up" data-aos-duration="1500">LOGO DESIGN</h4>
-                        <div class="aroww"></div>
-                        <i class="arrow arrow--right"></i>
-                        <img src="img/sky.jpg" alt="" />
-                        
-                    </div>
-                </div> -->
+            
 
-            </div>
+            </div><!-- 작품, 작품 설명 ppt 가로 길게 제작해서 업로드 -->
             <div class="header">
                 <!--  <h1>Spinny Flipz</h1> -->
               </div>
@@ -443,7 +437,7 @@
         <div class="title inner" >
             <h3>웹디자인</h3>
         </div><!-- .title end -->
-        <div class="list inner">
+        <div class="list inner"  data-aos="fade-up"data-aos-duration="3000">
             <div class="item"><!-- 1 -->
                 <div class="mot2">
                     <img src="img/motion2.png" alt="구름" />
@@ -472,7 +466,7 @@
 
             <div class="item"><!-- 2 -->
                 <img src="img/cont03_2.jpg" alt="스투시" />
-                <img src="img/cont03_2hover.jpg" alt="스투시" />
+                <img src="img/black-hat.png" alt="스투시" />
                 <div class="info">
                     <h4>스투시 웹사이트 리뉴얼</h4>
                     <p>제작목적, 콘셉트, 웹사이트 리뉴얼을 위한 기획, 디자인, HTML, CSS언어를 활용하여 웹사이트를 구현하였습니다.</p>
@@ -502,11 +496,11 @@
                 </div><!-- .title end -->
                 <div class="info">
                     <div class="info_img">
-                        <img src="img/cont03_1.jpg" alt="" /><!-- 사진 컬러, 흑백 넣고 opacity 줄 것 -->
+                        <img src="img/cont03_1.jpg" alt="" />
                         <div class="me">
                             <h2><strong>정지현</strong> 1997/12/23</h2>
                             <h3>010.4033.5003</h3>    
-                            <h4><a href="#" onClick="toclip('textclip'); return false;">wjdwlgus1223@naver.com</a></h4>
+                            <h4><a href="#" id="clip" onClick="toclip('textclip'); return false;">wjdwlgus1223@naver.com</a></h4>
                         </div>
                     </div><!-- .info_img end -->
                     
