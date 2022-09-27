@@ -30,7 +30,7 @@ body {
     color: #333;
     line-height: 1;
     overflow-x: hidden;
-    
+    padding-top: 100px;
 }
 span {
     position: absolute;
@@ -38,7 +38,8 @@ span {
 }
 /* header */
 header {
-    width: 1920px;
+    /* width: 1920px; */
+    width: 100%;
     height: 100px;
     position: fixed;
     top: 0;
@@ -46,6 +47,7 @@ header {
     background-color:white;
     border-bottom: 1px solid #333;
     z-index: 99;
+    
 }
 
 header div {
@@ -55,6 +57,7 @@ header div {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 header div h1 {
     padding: 20px;
@@ -66,6 +69,7 @@ header div nav {
     font-family: 'Noto Sans';
     font-size: 18px;
     font-weight: 400;
+    
 }
 header div nav ul {
     width: 1196px;
@@ -76,9 +80,8 @@ header div nav ul {
 header div nav .depth01 {
     
 }
-header div nav .depth01 .depth02 {
-    display: none;
-}
+
+
 header i {
     font-size: 20px;
     margin: 0 auto;
@@ -86,17 +89,14 @@ header i {
 /* .main_visual */
 /* textani */
 .main {
-  height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
-  position: relative;
+
 }
 .main .scroll {
   position: absolute;
-  left: 0; top: 0;
+  left: 0; top: 50px;
   display: flex;
   transform: rotate(0deg);/* degree:각도 */
-  
+
 }
 .main .scroll div {
   font-size: 130px;
@@ -122,14 +122,14 @@ header i {
 
 .main:nth-of-type(2) {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
   position: relative;
 }
 .main:nth-of-type(2) .scroll {
   position: absolute;
   left: 0; 
-  top: 674px;
+  top: 624px;
   display: flex;
   transform: rotate(0deg);/* degree:각도 */
   
@@ -140,27 +140,27 @@ header i {
     font-weight: 500;
   white-space: nowrap;/* 화면 크기조절해도 글자가 떨어지지 않도록 */
   animation: animate1 80s linear infinite;
-  animation-direction: alternate;
+  animation-direction: reverse;
 }
 .main:nth-of-type(2) .scroll div:nth-child(2) {
   animation: animate2 80s linear infinite;
   animation-delay: -40s;
-  animation-direction: alternate;
+  animation-direction: reverse;
 }
 
 @keyframes animate1 {
-  0% {transform: translateX(100%);}
-  100%{transform: translateX(-100%);}
+  0% {transform: translateX(-100%);}
+  100%{transform: translateX(100%);}
 }
 @keyframes animate2 {
-  0% {transform: translateX(0%);}
-  100%{transform: translateX(-200%);}
+  0% {transform: translateX(-200%);}
+  100%{transform: translateX(0%);}
 }
 /* textani end */
 
 .main_visual {
+    height: 83vh;
     width: 100%;
-    height: 900px;
     position: relative;
     overflow: hidden;
     border-bottom: 1px solid #333;
@@ -170,7 +170,7 @@ header i {
 .main_visual > div {
     margin: 0 auto;
     position: absolute;
-    top: 100px;
+    top: 0;
     left: 0;
     
 }
@@ -184,27 +184,31 @@ header i {
     left: 150px;
     z-index: 99;
     transition: 1s;
+    transform: translate(-50%, -50%);/* 마우스와 이미지 축을 중심으로 */
   }
 #PopLayer2 {
     position: absolute;
     top: 280px;
     left: 800px;
     z-index: 99;
-    transition: 3s;
+    transition: 2s;
+    transform: translate(-50%, -50%);
   }
 #PopLayer3 {
     position: absolute;
     top: 180px;
     left: 1300px;
     z-index: 99;
-    transition: 5s;
+    transition: 3s;
+    transform: translate(-50%, -50%);
   }
 #PopLayer4 {
     position: absolute;
     top: 500px;
     left: 1000px;
     z-index: 99;
-    transition: 7s;
+    transition: 3s;
+    transform: translate(-50%, -50%);
   }
 
 
@@ -215,14 +219,17 @@ header i {
 
 /* cont01 */
 .cont01 {
-    margin-top: 150PX;
     margin-bottom: 50px;
     
   }
 .cont01 .category {
-    margin-bottom: 50px;
+    width: 1440px;
+    height: 250px;
+    margin: 0 auto;
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
+    align-items: flex-end;
   }
 .cont01 .category ul {
     text-align: center;
@@ -249,7 +256,7 @@ header i {
     width: 1440px;
 
     height: 1320px;
-    margin: 50px auto;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 250px;
@@ -281,6 +288,7 @@ header i {
 .cont01 .item .list {}
 .cont01 .item .list img {
     border: 1px solid #333;
+    transition: 2s;
 }
 .cont01 .item .btn {
     width: 100px;
@@ -301,7 +309,9 @@ header i {
 .cont01 .box.on {
     display: flex;
 }
-
+.cont01 .item .list img:hover {
+  transform: scale(1.02);
+}
 
 
 /* .slide .swiper-slide:last-of-type {
@@ -326,12 +336,15 @@ header i {
 }
 
 
+
 /* swiper 초기값 */
 .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
     color: #333;
+    
 }
 .swiper-button-next, .swiper-rtl .swiper-button-prev {
     color: #333;
+    
 }
 .swiper {
     width: 120%;
@@ -340,6 +353,7 @@ header i {
   .swiper-wrapper {
     position: absolute;
     left: -643px;
+    
   }
   .swiper-slide {
     text-align: left;
@@ -370,12 +384,18 @@ header i {
     height: 180px;
     object-fit: cover;
     margin: auto 10px;
+    transition: 2s;
   }
   .slide {
     width: 1440px;
     height: 250px;
     position: relative;
-    margin: 150px auto;
+    margin: 250px auto;
+  }
+  .slide .b {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .slide h4 {
     width: 1440px;
@@ -384,25 +404,49 @@ header i {
     font-size: 32px;
     margin: 30px auto;
   }
+  .slide .xi-long-arrow-right {
+  font-size: 25px;
+  width: 40px;
+  height: 30px;
+  text-align: right;
+  margin: 0 auto;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  animation: horizontal 2s ease-in-out infinite;
+}
+@keyframes horizontal {
+  0% {
+    right: 9px;
+  }
+  50% {
+    right: 18px;
+  }
+  100% {
+    right: 9px;
+  }
+}
   .slide .best {
     line-height: 1.5;
     width: 463px;
   }
-  
+  .slide img:hover {
+    transform: scale(1.08);
+  }
 
 
   /* .cont02 */
   .cont02 {
     background-color: #ededed;
     width: 100%;
-    height: 1900px;
+    height: 2050px;
     position: relative;
     
   }
   .cont02 .nike {
     width: 1440px;
     height: 1730px;
-    padding-top: 80px;
+    padding-top: 200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -425,7 +469,7 @@ header i {
   }
   .cont02 .nike .right .text {
     position: absolute;
-    bottom: 100px;
+    bottom: 125px;
     line-height: 1.2;
   }
   .cont02 .nike .right .text p {
@@ -438,59 +482,80 @@ header i {
   .cont02 .nike .right .text strong {
     font-size: 44px;
   }
-  
-  .cont02 .nike .right .s3 img:nth-of-type(1) {
+  .cont02 .nike .right .s3  {
+
+  }
+  .cont02 .nike .right .s3 > div:nth-of-type(1) {
+    height: 1000px;
+    width: 200px;
     position: absolute;
-    top: 600px;
-    right: 500px;
+    bottom: 300px;
+    right: 600px;
     transition: 2s;
     z-index: 60;
   }
-  .cont02 .nike .right .s3 img:nth-of-type(2) {
+  .cont02 .nike .right .s3 > div:nth-of-type(2) {
+    height: 1000px;
+    width: 200px;
     position: absolute;
     top: 500px;
     right: 230px;
     transition: 2s;
     z-index: 59;
   }
-  .cont02 .nike .right .s3 img:nth-of-type(3) {
+  .cont02 .nike .right .s3 > div:nth-of-type(3) {
+    height: 1000px;
+    width: 200px;
     position: absolute;
     top: 200px;
     right: 400px;
     transition: 2s;
     z-index: 58;
   }
-  .cont02 .nike .right .s3 img:nth-of-type(1):hover {
-    top: 150px;
+  .cont02 .nike .right .s3 > div:nth-of-type(1) img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 2s;
+  }
+  .cont02 .nike .right .s3 div:nth-of-type(1):hover img{
     animation: ani1 5s linear infinite;
+    top: -500px;
+    
   }
   @keyframes ani1 {
-    0% {transform: translateY(100%);
-    transform: rotate(360deg);}
-    100%{transform: translateY(-100%);
-        transform: rotate(-360deg)}
+    0% {transform: rotate(360deg);}
+    100%{transform: rotate(-360deg)}
   }
   
-  .cont02 .nike .right .s3 img:nth-of-type(2):hover {
+  .cont02 .nike .right .s3 > div:nth-of-type(2) img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 2s;
+  }
+  .cont02 .nike .right .s3 div:nth-of-type(2):hover img {
     top: 200px;
     animation: ani2 5s linear infinite;
   }
   @keyframes ani2 {
-    0% {transform: translateY(100%);
-    transform: rotate(720deg);}
-    100%{transform: translateY(-100%);
-        transform: rotate(-720deg)}
+    0% {transform: rotate(720deg);}
+    100%{transform: rotate(-720deg)}
   }
 
-  .cont02 .nike .right .s3 img:nth-of-type(3):hover {
+  .cont02 .nike .right .s3 > div:nth-of-type(3) img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 2s;
+  }
+  .cont02 .nike .right .s3 div:nth-of-type(3):hover img {
     top: 800px;
     animation: ani3 5s linear infinite;
   }
   @keyframes ani3 {
-    0% {transform: translateY(100%);
-    transform: rotate(520deg);}
-    100%{transform: translateY(-100%);
-        transform: rotate(-520deg)}
+    0% {transform: rotate(520deg);}
+    100%{transform: rotate(-520deg)}
   }
   .cont02 .nike .right .d p {
     margin-top: 30px;
@@ -498,9 +563,11 @@ header i {
   .cont02 .nike .right .d {
     
   }
+
+
   .cont03 div video {
     display: block;
-    width: 100vw;
+    width: 100%;
     height: 760px;
     object-fit: cover;
   }
@@ -508,8 +575,8 @@ header i {
   .cont03 .main {
     background-color: #ededed;
     height: 150px;
-    width: 100vw;
-    overflow-x: hidden;
+    width: 100%;
+    overflow: hidden;
     position: relative;
     font-size: 120px;
     font-family: 'Roboto';

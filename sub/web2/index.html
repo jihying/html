@@ -12,7 +12,6 @@
     
     <!-- 1.xeicon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-    <link href="font/폰트.css" rel="stylesheet" />
     <link href="css/스투시.css" rel="stylesheet" />
 
 
@@ -23,38 +22,34 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-
-
+    <!-- 4.jquery ui lib -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(function(){
             $(document).mousemove(function(event1){ 
-                var x1 = event1.pageX, y1 = event1.pageY; 
-                $("#PopLayer1").css("left",x1+ 10 +"px"); 
-                $("#PopLayer1").css("top",y1+ 10 +"px"); 
+                var x1 = event1.clientX, y1 = event1.clientY; 
+                $("#PopLayer1").css("left",x1+ 100 +"px"); 
+                $("#PopLayer1").css("top",y1+ 100 +"px"); 
+            }); 
+            
+            
+            $(document).mousemove(function(event){ 
+                var x2 = event.clientX, y2 = event.clientY; 
+                $("#PopLayer2").css("left",x2+ 450 + "px"); 
+                $("#PopLayer2").css("top",y2+ 350 + "px"); 
             }); 
             $(document).mousemove(function(event){ 
-                var x2 = event.pageX, y2 = event.pageY; 
-                $("#PopLayer2").css("left",x2+ 5+ "px"); 
-                $("#PopLayer2").css("top",y2+ 5+ "px"); 
+                var x3 = event.clientX, y3 = event.clientY; 
+                $("#PopLayer3").css("left",x3+ 200 +"px"); 
+                $("#PopLayer3").css("top",y3+ -200 +"px"); 
             }); 
             $(document).mousemove(function(event){ 
-                var x = event.pageX, y = event.pageY; 
-                $("#PopLayer3").css("left",x+"px"); 
-                $("#PopLayer3").css("top",y+"px"); 
-            }); 
-            $(document).mousemove(function(event){ 
-                var x = event.pageX, y = event.pageY; 
-                $("#PopLayer4").css("left",x+"px"); 
-                $("#PopLayer4").css("top",y+"px"); 
+                var x4 = event.clientX, y4 = event.clientY; 
+                $("#PopLayer4").css("left",x4+ 700 +"px"); 
+                $("#PopLayer4").css("top",y4+ 300 +"px"); 
             }); 
 
-           /*  $('.category ul li img').click(function(){
-                $('.on').css({
-                    'border':'1px solid #333'
-                })
-                
-            });
-             */
+           
             $( '.category ul li img' ).click( function() {
             $('.category ul li img').removeClass('on');
             $( this ).addClass('on');
@@ -62,25 +57,14 @@
             
             $('.cont01 .category ul').click(function(){
                 
-                //모든 tab_menu li한테 클래스명 제거(on)
-                //내가 클릭한 li(this)한테 클래스명 추가(on)
+                
                 $('.cont01 .category ul').removeClass('on');
                 $('.cont01 .category ul').eq($(this).index()).addClass('on');
-                //$('.tab_menu li').eq($(this).index()).addClass('on'); 
-                //$(this).addClass('on');
-                //두개 같음
-    
-
-                //스타일 태그안에서 클래스명 on이 붙었을 때
-                //스타일 변경
-
-
-                //메뉴를 클릭했을 때 item한테 클래스명 on이
-                //추가 삭제
+                
                 $('.box').removeClass('on');
                 $('.box').eq($(this).index()).addClass('on');
 
-            });//tab_menu li click()
+            });
             var swiper = new Swiper('.mySwiper', {
       slidesPerView: 3.8,
       centeredSlides: true,
@@ -89,16 +73,40 @@
         el: '.swiper-pagination',
         type: 'fraction',
       },
-      navigation: {
+      /* navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-      },
+      }, */
 
         /* scrollbar: {
           el: ".swiper-scrollbar",
         }, */
         
       });
+
+
+      /* 메뉴아이콘 클릭 */
+      $('.menu_open').click(function(){
+                $('.gnb_all').slideDown(1000, 'easeInOutQuart');/* 이징공작소 검색해서 복사해오기 */
+            });
+
+            /* 닫기아이콘 클릭 */
+            $('.menu_close').click(function(){
+                $('.gnb_all').slideUp(1000, 'easeInOutQuart');
+            });
+            
+            
+        $('header a').click(function(e){
+                e.preventDefault();//a링크 방지
+            });
+        $('.click').click(function(){
+                var page = $('.category').eq($(this).index());
+                var pageTop = page.offset().top;
+                $('html, body').animate({
+                    scrollTop : pageTop
+                }, 1000, 'easeInOutQuart');
+            });
+            
         });
 
     </script>
@@ -110,51 +118,21 @@
             <h1><img src="img/logo.jpg" alt="로고"/></h1>
             <nav>
                 <ul>
-                    <li class="depth01">
-                        <a href="#">APPAREL</a>
-                        <ul class="depth02">
-                            <li>
-                                <a href="#">ALL</a>
-                            </li>
-                            <li>
-                                <a href="#">NEW</a>
-                            </li>
-                            <li>
-                                <a href="#">TEES</a>
-                            </li>
-                            <li>
-                                <a href="#">SWEATS</a>
-                            </li>
-                            <li>
-                                <a href="#">KNITS</a>
-                            </li>
-                            <li>
-                                <a href="#">SHIRTS</a>
-                            </li>
-                            <li>
-                                <a href="#">PANTS</a>
-                            </li>
-                            <li>
-                                <a href="#">SHORTS</a>
-                            </li>
-                            <li>
-                                <a href="#">HEADWEAR</a>
-                            </li>
-                            <li>
-                                <a href="#">ACCESSORIES</a>
-                            </li>
-                        </ul><!-- depth02 end -->
+                    <li class="depth01 click">
+                        <a href="#c1">APPAREL</a>
                     </li><!-- depth01 end -->
                     <li class="depth01">
                         <a href="#">STORES</a>
-                    </li>
+                    </li><!-- depth01 end -->
                     <li class="depth01">
                         <a href="#">CONTACT</a>
-                    </li>
+                    </li><!-- depth01 end -->
                     <li class="depth01">
                         <a href="#">READ</a>
-                    </li>
+                    </li><!-- depth01 end -->
+                   
                 </ul>
+                
                 <i class="bag xi-market">
                     <span>bag</span>
                 </i>
@@ -163,6 +141,7 @@
     </header>
 
     <section class="main_visual">
+        
         <div class="main">
             <div class="scroll">
                 <div>
@@ -195,6 +174,7 @@
                 </div>
             </div><!-- .scroll end -->
         </div><!-- .main end -->
+        <div>
             <div id="PopLayer1"><img src="img/green-hat.png" alt="모자" /></div>
             <div id="PopLayer2"><img src="img/orange-hat.png" alt="모자" /></div>
             <div id="PopLayer3"><img src="img/white-cap.png" alt="모자" /></div>
@@ -202,7 +182,7 @@
         </div>
     </section><!-- .main_visual end -->
 
-    <section class="cont01">
+    <section class="cont01" id="c1">
         <div class="category">
             <ul>
                 <li><img class="on" src="img/o1all.png" alt="1"></li>
@@ -672,7 +652,10 @@
 
 
     <div class="slide">
-        <h4>BEST</h4>
+        <div class="b">
+            <h4>BEST</h4>
+            <h5 class="xi-long-arrow-right"></h5>
+        </div>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -730,8 +713,8 @@
                 <!-- <div class="swiper-slide"></div> -->
                 
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <!-- <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
             <!-- <div class="swiper-scrollbar"></div> -->
         </div>
     </div><!-- .slide end -->
@@ -745,9 +728,9 @@
             
             <div class="right">
                 <div class="s3">
-                    <img src="img/c_fossil.png" alt="fossil" />
-                    <img src="img/c_black.png" alt="black" />
-                    <img src="img/c_pink.png" alt="pink" />
+                    <div><img src="img/c_fossil.png" alt="fossil" /></div>
+                    <div><img src="img/c_black.png" alt="black" /></div>
+                    <div><img src="img/c_pink.png" alt="pink" /></div>
                 </div>
                 <div class="text">
                 <p>Stüssy and Nike return with a lounge-ready capsule for<br>
