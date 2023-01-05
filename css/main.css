@@ -147,6 +147,49 @@ section {
 .iam h1 {
     padding-top: 200px;
     font-size: 100px;
+    line-height: 1.4;
+}
+.up .shbox {
+    width: 385px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-top: 50px;
+}
+.up .showreel {
+    width: 185px;
+    height: 50px;
+    border: 2px solid #333;
+    color: #333;
+    font-weight: bold;
+    border-radius: 40px;
+    padding-top: 14px;
+    text-align: center;
+    font-size: 18px;
+}
+.up .showreel a {
+    
+}
+.up .pdf {
+    width: 185px;
+    height: 50px;
+    border: 2px solid #333;
+    color: #333;
+    font-weight: bold;
+    border-radius: 40px;
+    padding-top: 14px;
+    text-align: center;
+    font-size: 18px;
+}
+.up .showreel:hover {
+    background: #333;
+    color: #fff;
+    transition: 1s;
+}
+.up .pdf:hover {
+    background: #333;
+    color: #fff;
+    transition: 1s;
 }
 
 
@@ -157,6 +200,9 @@ section {
     height: 1000px;
     position: relative;
     
+}
+.cont01 .title {
+    padding-top: 50px;
 }
 .cont01 .title h3 {
     font-size: 34px;
@@ -200,7 +246,7 @@ section {
 
 
   .swiper-slide .text {
-    width: 20%;
+    width: 25%;
     height: 350px;
     text-align: left;
     position: absolute;
@@ -210,27 +256,30 @@ section {
 
   .swiper-slide .text h3 {
     font-size: 28px;
+    line-height: 1.3;
   }
 
   .swiper-slide .text h5 {
-    font-size: 18px;
+    font-size: 17px;
     margin-top: 20px;
+    line-height: 1.3;
   }
   .swiper-slide .text h6 {
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: 15px;
+    line-height: 1.3;
   }
   .swiper-slide .vid {
-    width: 75%;
+    width: 65%;
     height: 100%;
     position: absolute;
-    right: 0;
+    right: 100px;
   }
-  .swiper-slide .vid video {
+  /* .swiper-slide .vid .video {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+    padding-bottom: 56.25%;
+    position: relative;
+  } */
   
 
 /* left prev */
@@ -280,7 +329,7 @@ section {
     opacity: 0;
     padding: 10px 50px;
     margin-top: 620px;
-    margin-right: 3000px;
+    margin-right: 0px;
     position: relative;
   }
   
@@ -289,7 +338,7 @@ section {
     height: 32px;
     position: absolute;
     margin-top: 620px;
-    margin-left: 320px;
+    right: 0;
   }
   
   .arrow02::before,.arrow02::after {
@@ -539,6 +588,7 @@ height: 120vh;
 
 .cont04 .title {
     width: 100%;
+    padding-top: 50px;
 }
 .cont04 .title h3 {
     width: 300px;
@@ -572,7 +622,7 @@ height: 120vh;
     position: absolute;
 }
 .arrow::before {
-    width: 100%;
+    width: 110%;
     height: 100%;
     border: 2px solid #333;
     border-right: 0;
@@ -593,8 +643,21 @@ height: 120vh;
     justify-content: space-between;
     margin-bottom: 120px;
 }
+.cont04 .inner {
+    position: relative;
+}
+.show {
+    position: absolute;
+    bottom: 255px;
+    right: 35px;
+    width: 1030px;
+    height: 310px;
+   
+}
+
+
 .cont04 .t {
-    width: 100%;
+    width: 86%;
     height: 80px;
     margin-top: 50px;
     display: flex;
@@ -604,7 +667,7 @@ height: 120vh;
 .cont04 .t::before {
     content: '';
     background-color: #fff;
-    width: 840px;
+    width: 720px;
     height: 80px;
     position: absolute;
     top: 70px;
@@ -614,7 +677,7 @@ height: 120vh;
 .cont04 .t::after {
     content: '';
     background-color: #333;
-    width: 840px;
+    width: 720px;
     height: 2px;
     position: absolute;
     top: 70px;
@@ -768,9 +831,9 @@ height: 120vh;
     flex-wrap: wrap;
 }
 .cont05 .info .info_img {
-    width: 700px;
-    height: 500px;
-    border: 2px solid #333;
+    width: 400px;
+    height: 550px;
+    /* border: 2px solid #333; */
     background-color: #fff;
     
 
@@ -790,9 +853,9 @@ height: 120vh;
     font-weight: bolder;
 }
 .cont05 .info .me h2 {
-    font-size: 50px;
+    font-size: 48px;
     font-weight: 300;
-    margin-bottom: 115px;
+    margin-bottom: 60px;
 }
 .cont05 .info .me h3 {
     width: 350px;
@@ -810,6 +873,16 @@ height: 120vh;
 .cont05 .info .me h4 a:hover {
     color: royalblue;
 }
+.cont05 .info .me h5 {
+    font-size: 18px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: 1s;
+}
+.cont05 .info .me:hover h5 {
+    opacity: 1;
+    transition: 1s;
+}
 .cont05 .info .me h4 a:hover::after {
     content: '';
     position: absolute;
@@ -820,33 +893,55 @@ height: 120vh;
     height: 1px;
 }
 .cont05 .info .text {
-    width: 1080px;
+    width: 1300px;
     height: 780px;
     display: flex;
     flex-wrap: wrap;
 }
 .cont05 .info .text ul {
     width: 100%;
-    height: 150px;
+    
     border-top: 2px solid #444444;
     border-collapse: collapse;
     display: flex;
-    font-size: 20px;
+    font-size: 22px;
 }
+
+
 .cont05 .info .text ul li {
-    width: 100%;
+    width: 90%;
+    line-height: 1.8;
+    display: inline;
+    padding-top: 10px;
+}
+.cont05 .info .text ul li:first-of-type {
+    width: 250px;
+}
+
+.cont05 .info .text .tl li {
+    width: 90px;
     line-height: 1.8;
     display: inline;
 }
-.cont05 .info .text ul li:first-of-type {
-    width: 300px;
+.cont05 .info .text .tl li img {
+    width: 60px;
+    margin-top: 10px;
+}
+.cont05 .info .text .tl li:nth-of-type(6) img {
+    width: 63px;
+}
+.cont05 .info .text .tl li:nth-of-type(8) img {
+    width: 120px;
 }
 
 .cont05 .info .text ul li strong {
     display: inline-block;
     width: 140px;
 }
-
+.cont05 .info .text ul li span {
+    font-size: 14px;
+    margin-left: 10px;
+}
 
 
 .cont05 .list {
