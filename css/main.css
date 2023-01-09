@@ -245,6 +245,30 @@ section {
   }
 
 
+  .swiper-slide .textd {
+    width: 25%;
+    height: 350px;
+    text-align: left;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+  }
+  .swiper-slide .textd h3 {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+
+  .swiper-slide .textd h5 {
+    font-size: 17px;
+    margin-top: 20px;
+    line-height: 1.3;
+  }
+  .swiper-slide .textd h6 {
+    font-size: 14px;
+    margin-top: 15px;
+    line-height: 1.3;
+  }
+  
   .swiper-slide .text {
     width: 25%;
     height: 350px;
