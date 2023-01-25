@@ -917,7 +917,7 @@ height: 120vh;
     height: 1px;
 }
 .cont05 .info .text {
-    width: 1100px;
+    width: 70%;
     height: 780px;
     display: flex;
     flex-wrap: wrap;
